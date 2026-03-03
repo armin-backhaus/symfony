@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
-class TaskController extends AbstractController
+final class TaskController extends AbstractController
 {
     #[Route('/task', name: 'app_task')]
     public function index(): Response

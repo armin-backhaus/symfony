@@ -10,8 +10,7 @@ final class MagicController extends AbstractController
     #[Route('/magic', name: 'magic')]
     public function index()
     {
-        return $this->render('armin/indexMagic.html.twig', [
-
+        return $this->render('magic/index.html.twig', [
         ]);
     }
 }
