@@ -6,15 +6,16 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class TestType extends AbstractType
+class Test2Type extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormbuilderInterface $builder, array $options): void
     {
         $builder
             ->setMethod('POST')
             ->add('id')
             ->add('name')
-                ->add('save', SubmitType::class)
+//            ->add('age')
+            ->add('save', SubmitType::class)
         ;
     }
 }
