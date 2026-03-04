@@ -14,10 +14,10 @@ final class DubController extends AbstractController
     {
         $entity = new Dub();
 
-        $dub = $this->createForm(DubType::class, $entity);
+        $dubForm = $this->createForm(DubType::class, $entity);
 
         return $this->render('dub/index.html.twig', [
-            'form' => $dub,
+            'form' => $dubForm,
         ]);
     }
 }
