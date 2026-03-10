@@ -22,7 +22,7 @@ final class TaskController extends AbstractController
         ]);
     }
 
-    #[Route('/task/new', name: 'app_task_new', methods: ['GET', 'POST'])]
+    #[Route('/task/new', name: 'app_task_new', methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS', 'ALL'])]
     public function new(Request $request): Response
     {
         $task = new Task();
@@ -34,13 +34,17 @@ final class TaskController extends AbstractController
 //            ->add('dueDate', DateType::class)
 //            ->add('save', SubmitType::class, ['label' => 'Create Task'])
 //            ->getForm();
+        $form->handleRequest($request);
 
-        if ($request->isMethod('POST')) {
-//            $form->submit($request->getPayload()->all());
-            if ($form->isSubmitted() && $form->isValid()) {
+        if (
+            $form->isSubmitted() &&
+//            $form->isValid() &&
+        true)
+
+            {
                 return new Response("XXX");
             }
-        }
+
         return $this->render('task/new.html.twig', [
             'form' => $form,
         ]);

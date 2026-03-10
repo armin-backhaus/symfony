@@ -14,17 +14,17 @@ use App\Repository\CategoryRepository;
 class TaskType extends AbstractType
 {
 
-    public function __construct(
-        private CategoryRepository $categoryRepository,
-    ) {
-    }
+//    public function __construct(
+//        private CategoryRepository $categoryRepository,
+//    ) {
+//    }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
 //            ->add('field_name')
             ->setMethod('POST')
             ->add('task', TextType::class)
-            ->add('dueDate', DateType::class)
+//            ->add('dueDate', DateType::class)
             ->add('save', SubmitType::class)
         ;
     }
