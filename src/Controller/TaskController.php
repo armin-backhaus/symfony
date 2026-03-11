@@ -4,13 +4,13 @@ namespace App\Controller;
 
 use App\Form\TaskType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Task;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\HttpFoundation\Request;
 
 final class TaskController extends AbstractController
 {
@@ -22,7 +22,7 @@ final class TaskController extends AbstractController
         ]);
     }
 
-    #[Route('/task/new', name: 'app_task_new', methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS', 'ALL'])]
+    #[Route('/task/new', name: 'app_task_new', methods: ['POST', 'GET', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS', 'ALL'])]
     public function new(Request $request): Response
     {
         $task = new Task();
@@ -35,18 +35,28 @@ final class TaskController extends AbstractController
 //            ->add('save', SubmitType::class, ['label' => 'Create Task'])
 //            ->getForm();
         $form->handleRequest($request);
-
         if (
-            $form->isSubmitted() &&
+            $request->isMethod('POST') &&
+//            $form->isSubmitted() &&
 //            $form->isValid() &&
         true)
 
-            {
-                return new Response("XXX");
-            }
+        {
+            return $this->render('task/new.html.twig', [
+               'form' => $form,
+               'test' => "submitted",
+            ], new Response(null, 422));
+        }
 
         return $this->render('task/new.html.twig', [
             'form' => $form,
+            'test' => "first call",
         ]);
+    }
+
+    #[Route('/task/create', name: 'app_task_create', methods: ['POST', 'GET', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS', 'ALL'])]
+    public function create(Request $request)
+    {
+        return new Response("XXX");
     }
 }

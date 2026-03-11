@@ -24,8 +24,9 @@ class TaskType extends AbstractType
 //            ->add('field_name')
             ->setMethod('POST')
             ->add('task', TextType::class)
-//            ->add('dueDate', DateType::class)
-            ->add('save', SubmitType::class)
+            ->add('dueDate', DateType::class)
+            ->add('submit', SubmitType::class)
+            ->setAction('/form/create')
         ;
     }
 
