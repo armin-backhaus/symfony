@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Repository\CategoryRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class TaskType extends AbstractType
 {
@@ -23,10 +24,14 @@ class TaskType extends AbstractType
         $builder
 //            ->add('field_name')
             ->setMethod('POST')
-            ->add('task', TextType::class)
+            ->add('task', TextType::class, [
+                'required' => true,
+                'constraints' => [
+                    new Assert\Length(min: 3),
+                ]
+            ])
             ->add('dueDate', DateType::class)
             ->add('submit', SubmitType::class)
-            ->setAction('/form/create')
         ;
     }
 

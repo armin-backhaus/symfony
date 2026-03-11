@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\TaskRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
 class Task
 {
@@ -13,8 +14,9 @@ class Task
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(type: 'string', length: 255)]
     protected string $task;
-
+    #[ORM\Column(type: 'datetime')]
     protected ?\DateTimeInterface $dueDate;
 
     public function getTask(): string
