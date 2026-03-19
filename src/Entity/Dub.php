@@ -14,15 +14,20 @@ class Dub
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private ?string $name = "";
 
     #[ORM\Column(length: 3)]
-    private ?int $age = null;
+    private ?int $age = 0;
 
     #[ORM\Column(length: 999)]
     private ?string $hobbys = null;
 
     public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(): ?int
     {
         return $this->id;
     }
