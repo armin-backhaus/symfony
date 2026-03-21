@@ -16,7 +16,8 @@ class RaceType extends AbstractType
     {
         $builder
             ->setMethod('POST')
-            ->add('name')
+            ->add('bike')
+            ->add('year')
             ->add('save', SubmitType::class);
     }
 

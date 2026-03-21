@@ -21,28 +21,27 @@ final class RaceController extends AbstractController
         ]);
     }
 
-    #[Route('/race', name: 'race')]
+    #[Route('/race', name: 'app_race')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $newRace = new Race();
         $newRace->setBike("Honda");
         $newRace->setYear("2005");
 
-        $newRace = $this->createForm(RaceType::class, $newRace);
-        $entityManager->persist($newRace);
-        $entityManager->flush();
+        $raceForm = $this->createForm(RaceType::class, $newRace);
+        $raceForm->handleRequest($request);
 
-        if ($newRace->isSubmitted() && $newRace->isValid()) {
+        if ($raceForm->isSubmitted() && $raceForm->isValid()) {
             $entityManager->persist($newRace);
             $entityManager->flush();
 
             return $this->render('race/index.html.twig', [
-                'form' => $newRace,
+                'form' => $raceForm,
             ], new Response(null, 422));
         }
 
         return $this->render('race/index.html.twig', [
-            'form' => $newRace,
+            'form' => $raceForm,
         ]);
     }
 
