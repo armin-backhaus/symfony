@@ -2,13 +2,14 @@
 
 namespace App\Form;
 
-use App\Entity\Magic;
+
+use App\Entity\Armin2;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class MagicType extends AbstractType
+class Armin2Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -21,7 +22,7 @@ class MagicType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-           'data_class' => Magic::class,
+            'data_class' => Armin2::class,
         ]);
     }
 }

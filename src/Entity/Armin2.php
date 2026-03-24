@@ -3,11 +3,11 @@
 
 namespace App\Entity;
 
-use App\Repository\MagicRepository;
+use App\Repository\Armin2Repository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: MagicRepository::class)]
-class Magic
+#[ORM\Entity(repositoryClass: Armin2Repository::class)]
+class Armin2
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
