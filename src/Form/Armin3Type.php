@@ -2,13 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\Armin2;
+use App\Entity\Armin3;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Armin2Type extends AbstractType
+class Armin3Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -21,7 +21,7 @@ class Armin2Type extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Armin2::class,
+            'data_class' => Armin3::class,
         ]);
     }
 }
